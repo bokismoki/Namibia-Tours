@@ -31,32 +31,33 @@
 				de: 'kontakt/'
 			}
 		}
-		const page = $metaPage[0].getAttribute('content');
+		var page = $metaPage[0].getAttribute('content');
+		var host = window.location.hostname;
 
 		if (page) {
 			// HOME
 			if (['home-EN', 'home-DE'].includes(page)) {
-				window.location.href = `http://127.0.0.1:3000/${lang === 'en' ? 'en/' : ''}${routes.home[lang]}`;
+				window.location = `https://${host}/${lang === 'en' ? 'en/' : ''}${routes.home[lang]}`;
 				return;
 			}
 			// GUIDED TOURS
 			if (['tours-EN', 'tours-DE'].includes(page)) {
-				window.location.href = `http://127.0.0.1:3000/${lang === 'en' ? 'en/' : ''}${routes.tours[lang]}`;
+				window.location = `https://${host}/${lang === 'en' ? 'en/' : ''}${routes.tours[lang]}`;
 				return;
 			}
 			// ABOUT ME
 			if (['about-EN', 'about-DE'].includes(page)) {
-				window.location.href = `http://127.0.0.1:3000/${lang === 'en' ? 'en/' : ''}${routes.about[lang]}`;
+				window.location = `https://${host}/${lang === 'en' ? 'en/' : ''}${routes.about[lang]}`;
 				return;
 			}
 			// NAMIBIA
 			if (['namibia-EN', 'namibia-DE'].includes(page)) {
-				window.location.href = `http://127.0.0.1:3000/${lang === 'en' ? 'en/' : ''}${routes.namibia[lang]}`;
+				window.location = `https://${host}/${lang === 'en' ? 'en/' : ''}${routes.namibia[lang]}`;
 				return;
 			}
 			// CONTACT
 			if (['contact-EN', 'contact-DE'].includes(page)) {
-				window.location.href = `http://127.0.0.1:3000/${lang === 'en' ? 'en/' : ''}${routes.contact[lang]}`;
+				window.location = `https://${host}/${lang === 'en' ? 'en/' : ''}${routes.contact[lang]}`;
 				return;
 			}
 		}
