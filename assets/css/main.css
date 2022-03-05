@@ -3491,6 +3491,7 @@ input, select, textarea {
 			position: absolute;
 			right: 0;
 			top: 0;
+			display: flex;
 		}
 
 			#header nav > ul {
@@ -3498,11 +3499,29 @@ input, select, textarea {
 				margin: 0;
 				padding: 0;
 				white-space: nowrap;
+				display: flex;
+				align-items: center;
 			}
 
 				#header nav > ul > li {
 					display: inline-block;
 					padding: 0;
+				}
+
+				#header nav > ul > li#langSwitch {
+					display: flex;
+					align-items: center;
+				}
+
+				#header nav > ul > li#langSwitch > button {
+					box-shadow: none;
+					padding: 5px;
+					height: unset;
+					line-height: 2;
+				}
+
+				#header nav > ul > li#langSwitch > button:not(.active) {
+					opacity: 0.3;
 				}
 
 					#header nav > ul > li > a {

@@ -1511,16 +1511,33 @@
 			position: absolute;
 			right: 0;
 			top: 0;
+			display: flex;
 
 			> ul {
 				list-style: none;
 				margin: 0;
 				padding: 0;
 				white-space: nowrap;
+				display: flex;
+				align-items: center;
 
 				> li {
 					display: inline-block;
 					padding: 0;
+					
+					&#langSwitch {
+						display: flex;
+						align-items: center;
+						button {
+							box-shadow: none;
+							padding: 5px;
+							height: unset;
+							line-height: 2;
+							&:not(.active) {
+								opacity: 0.3;
+							}
+						}
+					}
 
 					> a {
 						border: 0;
