@@ -2092,13 +2092,13 @@ body.is-mobile {
 }
 
 // Mapbox
-#map-wrapper {
+.map-wrapper {
 	position: relative;
 	max-width: 750px;
 	margin: 0 auto;
 	padding-bottom: 100%;
 }
-#map {
+.map {
 	position: absolute !important;
 	top: 0;
 	left: 0;
@@ -2129,7 +2129,7 @@ body.is-mobile {
 	transform: rotate(0deg) translateX(-2px);
 }
 @media screen and (min-width: 768px) {
-	#map-wrapper {
+	.map-wrapper {
 		padding-bottom: 50%;
 	}
 }

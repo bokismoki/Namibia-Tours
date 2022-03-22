@@ -4016,13 +4016,13 @@ input, select, textarea {
 	}
 
 /* Mapbox */
-#map-wrapper {
+.map-wrapper {
 	position: relative;
 	max-width: 750px;
 	margin: 0 auto;
 	padding-bottom: 100%;
 }
-#map-wrapper::before {
+.map-wrapper::before {
 	content: "";
 	position: absolute;
 	top: 0;
@@ -4032,7 +4032,7 @@ input, select, textarea {
 	background-color: #ffffff;
 	transform: translateX(-100%);
 }
-#map-wrapper::after {
+.map-wrapper::after {
 	content: "";
 	position: absolute;
 	top: 0;
@@ -4042,7 +4042,7 @@ input, select, textarea {
 	background-color: #ffffff;
 	transform: translateX(100%);
 }
-#map {
+.map {
 	position: absolute !important;
 	top: 0;
 	left: 0;
@@ -4074,7 +4074,7 @@ input, select, textarea {
 }
 
 @media screen and (min-width: 768px) {
-	#map-wrapper {
+	.map-wrapper {
 		padding-bottom: 50%;
 	}
 }
