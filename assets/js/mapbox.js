@@ -55,8 +55,18 @@ function setupMap(mapboxglOptions, origin, midPoints, destination,) {
     planeIcon.className = 'plane';
     planeIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" id="airport-15" width="21" height="21" viewBox="0 0 21 21"><g><path d="M0,0 H21 V21 H0 Z" fill="none"></path><path d="M18 9.818V11.5l-6.5-1-0.318 4.773L14 17v1l-3.5-0.682L7 18v-1l2.818-1.727L9.5 10.5 3 11.5V9.818L9.5 7.5v-3s0-1.5 1-1.5 1 1.5 1 1.5v2.818l6.5 2.5z" fill="black" stroke="hsl(135, 22%, 100%)" stroke-linejoin="round" stroke-miterlimit="4px" stroke-width="2"></path><path d="M18 9.818V11.5l-6.5-1-0.318 4.773L14 17v1l-3.5-0.682L7 18v-1l2.818-1.727L9.5 10.5 3 11.5V9.818L9.5 7.5v-3s0-1.5 1-1.5 1 1.5 1 1.5v2.818l6.5 2.5z" fill="#693"></path></g></svg>`
     new mapboxgl.Marker(planeIcon)
-        .setLngLat([17.46329590140578, -22.487406703313916])
+        .setLngLat(origin)
         .addTo(map);
+    if ((origin[0] !== destination[0]) && (origin[1] !== destination[1])) {
+        // Add plane icon
+        const planeIcon = document.createElement('div');
+
+        planeIcon.className = 'plane';
+        planeIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" id="airport-15" width="21" height="21" viewBox="0 0 21 21"><g><path d="M0,0 H21 V21 H0 Z" fill="none"></path><path d="M18 9.818V11.5l-6.5-1-0.318 4.773L14 17v1l-3.5-0.682L7 18v-1l2.818-1.727L9.5 10.5 3 11.5V9.818L9.5 7.5v-3s0-1.5 1-1.5 1 1.5 1 1.5v2.818l6.5 2.5z" fill="black" stroke="hsl(135, 22%, 100%)" stroke-linejoin="round" stroke-miterlimit="4px" stroke-width="2"></path><path d="M18 9.818V11.5l-6.5-1-0.318 4.773L14 17v1l-3.5-0.682L7 18v-1l2.818-1.727L9.5 10.5 3 11.5V9.818L9.5 7.5v-3s0-1.5 1-1.5 1 1.5 1 1.5v2.818l6.5 2.5z" fill="#693"></path></g></svg>`
+        new mapboxgl.Marker(planeIcon)
+            .setLngLat(destination)
+            .addTo(map);
+    }
 
     // Calculate the distance in kilometers between route start/end point.
     const lineDistance = turf.length(route.features[0]);
@@ -209,3 +219,33 @@ setupMap({
     [16.83314736144289, -22.92973774757437],
     [17.25494198733556, -22.546621830066233]
 ], [17.46329590140578, -22.487406703313916])
+
+// Map 3
+setupMap({
+    container: 'map3',
+    style: 'mapbox://styles/namibtours/cl10f79ku000i14s7kw2io7y5',
+    center: [20.5, -20],
+    zoom: 4.5
+}, [17.46329590140578, -22.487406703313916], [
+    [16.65270989745769, -20.81372404265782],
+    [15.921198057775433, -19.1778530719573],
+    [16.941561596610992, -18.806693194302532],
+    [16.142628815883146, -17.741383937510566],
+    [19.454479744720928, -17.870955541375512],
+    [21.681224168016115, -18.138127508005102],
+    [23.29723581198051, -17.86998826994856],
+    [23.672607981513192, -18.329187559322243],
+    [24.56700739684111, -17.539874517443728],
+    [24.785865734773235, -17.882481889655185],
+    [25.17114579103581, -17.79497790694005],
+    [25.83087864832811, -17.931666178622116],
+], [25.85524029415247, -18.08416925488341])
+
+// Handle map expandables
+const togglers = document.querySelectorAll('.map-toggler');
+
+togglers.forEach((toggler) => {
+    toggler.addEventListener('click', function () {
+        toggler.classList.toggle('active')
+    })
+})

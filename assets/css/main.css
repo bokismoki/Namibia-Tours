@@ -4016,11 +4016,40 @@ input, select, textarea {
 	}
 
 /* Mapbox */
+.map-toggler {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border: none;
+	box-shadow: none;
+	width: 100%;
+	max-width: 60em;
+	margin: 0 auto;
+	background-color: #fff;
+	color: #2E3842;
+	border-radius: 0;
+}
+.map-toggler.active svg {
+	transform: rotate(45deg);
+}
+.map-toggler.active ~ .map-content {
+	max-height: 1500px;
+}
+.map-toggler:hover {
+	background-color: #fff;
+}
+.map-toggler svg {
+	width: 20px;
+	height: 20px;
+	fill: currentColor;
+	transition: transform 0.3s;
+}
 .map-wrapper {
 	position: relative;
 	max-width: 750px;
 	margin: 0 auto;
 	padding-bottom: 100%;
+	overflow: hidden;
 }
 .map-wrapper::before {
 	content: "";
@@ -4041,6 +4070,11 @@ input, select, textarea {
 	height: 100%;
 	background-color: #ffffff;
 	transform: translateX(100%);
+}
+.map-content {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.3s;
 }
 .map {
 	position: absolute !important;
