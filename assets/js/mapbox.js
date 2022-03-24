@@ -164,7 +164,7 @@ function setupMap(mapboxglOptions, origin, midPoints, destination,) {
             map.getSource('point').setData(point);
 
             // Request the next frame of animation as long as the end has not been reached
-            if (counter < steps) {
+            if (counter < steps || mapboxglOptions.zoom === 4.5 ? counter < steps - 5 : false) {
                 requestAnimationFrame(animate);
             } else {
                 counter = 0
@@ -184,7 +184,7 @@ setupMap({
     container: 'map1',
     style: 'mapbox://styles/namibtours/cl10f79ku000i14s7kw2io7y5',
     center: [16, -20.8],
-    zoom: 5.5
+    zoom: 4.5
 }, [17.46329590140578, -22.487406703313916], [
     [16.305791852989348, -21.751013276024903],
     [15.761626483700676, -22.752212193513447],
@@ -205,7 +205,7 @@ setupMap({
     container: 'map2',
     style: 'mapbox://styles/namibtours/cl10f79ku000i14s7kw2io7y5',
     center: [17.5, -25],
-    zoom: 5.5
+    zoom: 4.8
 }, [17.46329590140578, -22.487406703313916], [
     [17.996270439457028, -22.912448103004667],
     [18.100923506948323, -24.430027400596],
